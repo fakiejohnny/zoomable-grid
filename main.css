@@ -1,0 +1,117 @@
+/* Must have */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex-flow: row wrap;
+    transform-origin: 0% 0%;
+    transition: transform 0.3s ease-out;
+}
+
+.tab {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Styling */
+
+.tab-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-family: Helvetica, sans-serif;
+}
+
+.tab-content h1 {
+    font-size: 17vmin;
+}
+
+.tab-content p {
+    font-size: 5vmin;
+}
+
+.color1 {
+    background-color: #00bcd4;
+}
+
+.color2 {
+    background-color: #009688;
+}
+
+.color3 {
+    background-color: #ffeb3b;
+}
+
+.color4 {
+    background-color: #ffffff;
+}
+
+.color5 {
+    background-color: #111111;
+}
+
+.light {
+    color: #eeeeee;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:  visibility 0s linear 0.2s, opacity 0.2s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.controls-visible {
+    transition: visibility 0s linear 0s, opacity 0.2s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+}
+
+.icon {
+    position: fixed;
+    cursor: pointer;
+    user-select: none;
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 4em;
+    transition: transform 0.2s ease-out;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.arrow-left {
+    top: 45%;
+    left: 0.1em;
+}
+
+.arrow-up {
+    top: 0.1em;
+}
+
+.arrow-right {
+    top: 45%;
+    right: 0.1em;
+}
+
+.arrow-down {
+    bottom: 0.1em;
+}
+
+.zoom-out {
+    top: 0.4em;
+    right: 0.4em;
+    font-size: 3em;
+}
