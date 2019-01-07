@@ -4,8 +4,8 @@ let controlsClass = select(".controls");
 
 let row = 4;
 
-let innerWidth = 0;
-let innerHeight = 0;
+let innerWidthVar = 0;
+let innerHeightVar = 0;
 let activeRow = row;
 let mouseX = 0;
 let mouseY = 0;
@@ -43,8 +43,8 @@ arrowRightClass.addEventListener("mousedown", moveRight);
 arrowDownClass.addEventListener("mousedown", moveDown);
 
 function resize() {
-    innerWidth = window.innerWidth;
-    innerHeight = window.innerHeight;
+    innerWidthVar = window.innerWidth;
+    innerHeightVar = window.innerHeight;
 
     activeRow = row;
     translateX = 0;
@@ -59,8 +59,8 @@ function resize() {
             directZoom(i)
         });
 
-        let tx = -nx * innerWidth;
-        let ty = -ny * innerHeight;
+        let tx = -nx * innerWidthVar;
+        let ty = -ny * innerHeightVar;
 
         tab[i] = new Tab(nx, ny, tx, ty);
 
@@ -72,8 +72,8 @@ function resize() {
         }
     }
 
-    contentClass.style.width = row * innerWidth + "px";
-    contentClass.style.height = row * innerHeight + "px";
+    contentClass.style.width = row * innerWidthVar + "px";
+    contentClass.style.height = row * innerHeightVar + "px";
     transform();
 }
 
@@ -119,16 +119,16 @@ function zoom(richtung) {
 
         /* x-Position */
 
-        if (mouseX > innerWidth / 2) {
-            translateX -= (innerWidth - translateX) / activeRow;
+        if (mouseX > innerWidthVar / 2) {
+            translateX -= (innerWidthVar - translateX) / activeRow;
         } else {
             translateX += translateX / activeRow;
         }
 
         /* y-Position */
 
-        if (mouseY > innerHeight / 2) {
-            translateY -= (innerHeight - translateY) / activeRow;
+        if (mouseY > innerHeightVar / 2) {
+            translateY -= (innerHeightVar - translateY) / activeRow;
         } else {
             translateY += translateY / activeRow;
         }
@@ -145,8 +145,8 @@ function zoom(richtung) {
 
         /* x-Position */
 
-        if (mouseX < innerWidth / 2) {
-            translateX += (innerWidth - translateX) / activeRow;
+        if (mouseX < innerWidthVar / 2) {
+            translateX += (innerWidthVar - translateX) / activeRow;
         } else {
             translateX -= translateX / activeRow;
         }
@@ -154,14 +154,14 @@ function zoom(richtung) {
         if (translateX > 0) {
             translateX = 0;
         }
-        if (translateX < (activeRow - row) * innerWidth / activeRow) { //better formula?
-            translateX += innerWidth / activeRow;
+        if (translateX < (activeRow - row) * innerWidthVar / activeRow) { //better formula?
+            translateX += innerWidthVar / activeRow;
         }
 
         /* y-Position */
 
-        if (mouseY < innerHeight / 2) {
-            translateY += (innerHeight - translateY) / activeRow;
+        if (mouseY < innerHeightVar / 2) {
+            translateY += (innerHeightVar - translateY) / activeRow;
         } else {
             translateY -= translateY / activeRow;
         }
@@ -169,8 +169,8 @@ function zoom(richtung) {
         if (translateY > 0) {
             translateY = 0;
         }
-        if (translateY < (activeRow - row) * innerHeight / activeRow) { //better formula?
-            translateY += innerHeight / activeRow;
+        if (translateY < (activeRow - row) * innerHeightVar / activeRow) { //better formula?
+            translateY += innerHeightVar / activeRow;
         }
 
     }
@@ -185,8 +185,8 @@ function directZoom(i) {
 
         activeRow = 1;
 
-        translateX = -(tab[i].numberX * innerWidth);
-        translateY = -(tab[i].numberY * innerHeight);
+        translateX = -(tab[i].numberX * innerWidthVar);
+        translateY = -(tab[i].numberY * innerHeightVar);
 
         proofActiveTab();
 
